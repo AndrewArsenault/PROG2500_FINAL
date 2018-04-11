@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace IsItGoodApp {
-    class RestaurantModel {
+    public class RestaurantModel {
         public String Name { get; set; }
         public String Phone { get; set; }
         public int Rating { get; set; }

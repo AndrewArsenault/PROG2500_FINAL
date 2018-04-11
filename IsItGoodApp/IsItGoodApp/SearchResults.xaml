@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="IsItGoodApp.SearchResults"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:IsItGoodApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Width="600" Height="600">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <CommandBar>
+            <CommandBar.Content>
+                <TextBlock x:Name="pageName" Margin="75,13,0,0" Text="Search"></TextBlock>
+            </CommandBar.Content>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="ContactInfo" Label="About" />
+                <AppBarButton Icon="Back" Label="Exit" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+        <StackPanel>
+            <ListView FontSize="24" SelectedItem="{Binding SelectedNameDay, Mode=TwoWay}" ItemTemplate="{StaticResource RestaurantModelTemplate}" ItemsSource="{Binding TextFiles}" Height="774"></ListView>
+        </StackPanel>
+    </StackPanel>
+</Page>
