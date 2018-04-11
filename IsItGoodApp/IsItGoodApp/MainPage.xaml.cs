@@ -45,8 +45,6 @@ namespace IsItGoodApp
 
             var results = await client.SearchBusinessesAllAsync(request);
 
-           
-
             int resultCount = results.Businesses.Count;
 
             Debug.WriteLine(resultCount);
@@ -63,8 +61,8 @@ namespace IsItGoodApp
         
             }
 
+            //Navigate to search results page
 
-            Debug.WriteLine("DONE");
 
         }
     }
