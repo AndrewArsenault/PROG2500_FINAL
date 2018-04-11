@@ -14,7 +14,7 @@ namespace IsItGoodApp
         public string searchLocation;
         public ObservableCollection<RestaurantModel> Restaurants { get; set; }
         public SearchData() {
-
+            Restaurants = new ObservableCollection<RestaurantModel>();
         }
 
     }
