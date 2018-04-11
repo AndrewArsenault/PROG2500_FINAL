@@ -22,5 +22,21 @@ namespace IsItGoodApp {
         public RestaurantModel() {
 
         }
+
+        public RestaurantModel(String Name, String Phone, int Rating, String[] Categories,
+            String URL, String Address, String Country, String State, String City, String ZipCode, String ImageUrl, bool IsClosed ){
+            this.Name = Name;
+            this.Phone = Phone;
+            this.Rating = Rating;
+            this.Categories = Categories;
+            this.URL = URL;
+            this.Address = Address;
+            this.Country = Country;
+            this.State = State;
+            this.City = City;
+            this.ZipCode = ZipCode;
+            this.ImageUrl = ImageUrl;
+            this.IsClosed = IsClosed;
+        }
     }
 }

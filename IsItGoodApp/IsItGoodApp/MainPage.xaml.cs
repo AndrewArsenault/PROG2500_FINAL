@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -12,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Yelp.Api;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,13 +24,37 @@ namespace IsItGoodApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        SearchData searchData = (SearchData)Application.Current.Resources["searchData"];
+
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        private async void  btnSearch_Click(object sender, RoutedEventArgs e)
         {
+            searchData.searchKeyWord = tbSearch.Text;
+            searchData.searchLocation = tbLocation.Text;
+
+            var client = new Yelp.Api.Client("uhYZFxMUHsPL7QO5AWYmIVGnrO1n_neqgTDJLZwQyFT2oHCzABvq5_BuXljPrjfS_DO3gkVoRwW2msSEj01JnP7gZAh1BEsDj2wz8zUO8m-Ka9eKrXRypgGzHYS6WnYx");
+
+            var request = new Yelp.Api.Models.SearchRequest();
+            request.Term = searchData.searchKeyWord;
+            request.Location = searchData.searchLocation;
+
+            var results = await client.SearchBusinessesAllAsync(request);
+
+            Debug.WriteLine("DONE");
+
+            int resultCount = results.Businesses.Count;
+
+            Debug.WriteLine(resultCount);
+
+            for(int i =0; i < resultCount; i++)
+            {
+                
+            }
 
         }
     }

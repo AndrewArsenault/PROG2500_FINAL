@@ -10,7 +10,7 @@ namespace IsItGoodApp
 {
     class SearchData{
        
-        public string searchKeyWold;
+        public string searchKeyWord;
         public string searchLocation;
         public ObservableCollection<RestaurantModel> Restaurants { get; set; }
         public SearchData() {

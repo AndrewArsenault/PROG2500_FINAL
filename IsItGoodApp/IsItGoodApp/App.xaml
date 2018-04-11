@@ -8,6 +8,8 @@
     <Application.Resources>
         <local:RestaurantModel x:Key="restauraunt">
         </local:RestaurantModel>
+        <local:SearchData x:Key="searchData">
+        </local:SearchData>
     </Application.Resources>
 
 </Application>
