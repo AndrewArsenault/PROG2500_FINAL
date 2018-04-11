@@ -17,8 +17,8 @@
                 <AppBarButton Icon="Back" Label="Exit" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
-        <TextBox x:Name="tbFirstName" Header="First Name:" AcceptsReturn="False" Margin="10" />
-        <TextBox x:Name="tbLastName" Header="Last Name:" AcceptsReturn="False" Margin="10"/>
-        <PasswordBox x:Name="tbPassword" Header="Password:" Margin="10" PasswordChar="*"/>
+        <TextBox x:Name="tbSearch" Header="Search:" AcceptsReturn="False" Margin="100,80,100,10" />
+        <TextBox x:Name="tbLocation" Header="Location:" AcceptsReturn="False" Margin="100,30,100,10"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="170,30,170,10"/>
     </StackPanel>
 </Page>
