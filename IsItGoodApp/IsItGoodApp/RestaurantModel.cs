@@ -25,6 +25,12 @@ namespace IsItGoodApp {
 
         public RestaurantModel(String Name, String Phone, float Rating, Yelp.Api.Models.Category[] Categories,
             String URL, String Address, String Country, String State, String City, String ZipCode, String ImageUrl, bool IsClosed ){
+
+            if(ImageUrl == "")
+            {
+                ImageUrl = "x";
+            }
+
             this.Name = Name;
             this.Phone = Phone;
             this.Rating = Rating;

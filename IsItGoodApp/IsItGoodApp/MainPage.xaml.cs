@@ -63,6 +63,8 @@ namespace IsItGoodApp
 
             //Navigate to search results page
 
+            this.Frame.Navigate(typeof(SearchResults));
+
 
         }
     }

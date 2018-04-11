@@ -6,7 +6,7 @@
     RequestedTheme="Light">
 
     <Application.Resources>
-        <local:RestaurantModel x:Key="restauraunt">
+        <local:RestaurantModel x:Key="restaurant">
         </local:RestaurantModel>
         <local:SearchData x:Key="searchData">
         </local:SearchData>

@@ -5,7 +5,7 @@
     xmlns:local="using:IsItGoodApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="600" Height="600">
+    mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <CommandBar>
@@ -17,8 +17,8 @@
                 <AppBarButton Icon="Back" Label="Exit" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
-        <TextBox x:Name="tbSearch" Header="Search:" AcceptsReturn="False" Margin="100,80,100,10" />
-        <TextBox x:Name="tbLocation" Header="Location:" AcceptsReturn="False" Margin="100,30,100,10"/>
+        <TextBox x:Name="tbSearch" Header="Search:" AcceptsReturn="False" Margin="50,80,50,10" />
+        <TextBox x:Name="tbLocation" Header="Location:" AcceptsReturn="False" Margin="50,30,50,10"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="170,30,170,10" Click="btnSearch_Click"/>
     </StackPanel>
 </Page>
