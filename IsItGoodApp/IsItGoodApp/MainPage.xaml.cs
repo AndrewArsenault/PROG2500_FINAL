@@ -26,5 +26,10 @@ namespace IsItGoodApp
         {
             this.InitializeComponent();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
