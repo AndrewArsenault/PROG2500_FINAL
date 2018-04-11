@@ -5,4 +5,9 @@
     xmlns:local="using:IsItGoodApp"
     RequestedTheme="Light">
 
+    <Application.Resources>
+        <local:RestaurantModel x:Key="restauraunt">
+        </local:RestaurantModel>
+    </Application.Resources>
+
 </Application>
