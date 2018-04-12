@@ -34,6 +34,23 @@ namespace IsItGoodApp
 
         private async void  btnSearch_Click(object sender, RoutedEventArgs e)
         {
+
+            if (tbLocation.Text == "" || tbSearch.Text == "")
+            {
+
+                    ContentDialog badInputDialog = new ContentDialog()
+                    {
+                        Title = "Bad search input",
+                        Content = "Please check search values",
+                        CloseButtonText = "Ok"
+                    };
+
+                    await badInputDialog.ShowAsync();
+               
+
+                return;
+            }
+
             searchData.searchKeyWord = tbSearch.Text;
             searchData.searchLocation = tbLocation.Text;
 

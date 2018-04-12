@@ -47,5 +47,10 @@ namespace IsItGoodApp
             //Navigate to restaurant landing page
 
         }
+
+        private void SearchButtonClick(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
     }
 }
