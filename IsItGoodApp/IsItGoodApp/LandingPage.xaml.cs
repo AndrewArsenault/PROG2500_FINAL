@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Documents;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
@@ -34,7 +35,14 @@ namespace IsItGoodApp
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+            }
+            else
+            {
+                Frame.Navigate(typeof(MainPage));
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -45,9 +53,31 @@ namespace IsItGoodApp
 
             LandingData.restaurant = restaurant;
 
-            LandingData.LoadRestaurant();
+            LandingData.LoadRestaurantDetails();
 
-            RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
+            if (LandingData.restaurant.ImageUrl != "x")
+            {
+                RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
+            }
+
+            Run separatorRun = new Run
+            {
+                Text = ", "
+            };
+
+            for (int i = 0; i < LandingData.restaurant.Categories.Length; i++)
+            {
+                Run run = new Run
+                {
+                    Text = LandingData.restaurant.Categories[i].Title
+                };
+                tbCategories.Inlines.Add(run);
+
+                if (i < LandingData.restaurant.Categories.Length -1)
+                {
+                    tbCategories.Inlines.Add(separatorRun);
+                }
+            }
         }
     }
 }

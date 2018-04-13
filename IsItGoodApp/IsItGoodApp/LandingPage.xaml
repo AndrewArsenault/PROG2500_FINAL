@@ -32,9 +32,8 @@
 		<TextBlock HorizontalAlignment="Left" Margin="330,300,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="{x:Bind LandingData.openString}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="330,400,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock x:Name="tbCategories" HorizontalAlignment="Left" Margin="330,400,0,0" VerticalAlignment="Top" FontSize="18" Width="200" TextWrapping="WrapWholeWords">
 			<Run Text="Categories: " />
-			<Run Text="{x:Bind LandingData.restaurant.Categories[0]}" />
 		</TextBlock>
 		<TextBlock HorizontalAlignment="Left" Margin="600,200,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="Address: " />

@@ -18,7 +18,7 @@ namespace IsItGoodApp
         {
         }
 
-        public void LoadRestaurant()
+        public void LoadRestaurantDetails()
         {
             if (restaurant == null)
             {
