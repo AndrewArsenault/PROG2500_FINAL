@@ -37,7 +37,9 @@ namespace IsItGoodApp
         {
             if (this.Frame.CanGoBack)
             {
-                this.Frame.GoBack();
+                //this.Frame.GoBack();
+                this.Frame.Navigate(typeof(SearchResults));
+                
             }
             else
             {

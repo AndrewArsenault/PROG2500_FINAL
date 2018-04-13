@@ -65,7 +65,7 @@ namespace IsItGoodApp
             int resultCount = results.Businesses.Count;
 
             Debug.WriteLine(resultCount);
-
+            
             for(int i =0; i < resultCount; i++)
             {
                 RestaurantModel rm = new RestaurantModel(results.Businesses[i].Name,
