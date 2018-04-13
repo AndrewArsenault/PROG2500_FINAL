@@ -38,14 +38,13 @@ namespace IsItGoodApp
 
         private void ResultsList_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-
             var tb = (TextBlock)e.OriginalSource;
             var dataContext = tb.DataContext;
 
             restaurant = (RestaurantModel)dataContext;
 
             //Navigate to restaurant landing page
-
+            Frame.Navigate(typeof(LandingPage), restaurant);
         }
 
         private void SearchButtonClick(object sender, RoutedEventArgs e)

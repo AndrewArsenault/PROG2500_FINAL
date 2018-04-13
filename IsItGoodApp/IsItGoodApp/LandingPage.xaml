@@ -24,15 +24,15 @@
 		</CommandBar>
 
 		<TextBlock HorizontalAlignment="Center" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="36" Text="{x:Bind LandingData.restaurant.Name}"/>
-		<Image x:Name="RestaurantImage" HorizontalAlignment="Left" Height="250" Margin="75,200,0,0" VerticalAlignment="Top" Width="250" />
-		<TextBlock HorizontalAlignment="Left" Margin="300,200,0,0" VerticalAlignment="Top" FontSize="18">
+		<Image x:Name="RestaurantImage" HorizontalAlignment="Left" Margin="75,200,0,0" VerticalAlignment="Top" Width="250" />
+		<TextBlock HorizontalAlignment="Left" Margin="330,200,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="Rating: " />
-			<Run Text="{x:Bind LandingData.restaurant.Rating}" />
+			<Run Text="{x:Bind LandingData.ratingString}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="300,300,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock HorizontalAlignment="Left" Margin="330,300,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="{x:Bind LandingData.openString}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="300,400,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock HorizontalAlignment="Left" Margin="330,400,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="Categories: " />
 			<Run Text="{x:Bind LandingData.restaurant.Categories[0]}" />
 		</TextBlock>
@@ -57,8 +57,8 @@
 			<Run Text="{x:Bind LandingData.restaurant.Phone}" />
 		</TextBlock>
 		<TextBlock HorizontalAlignment="Left" Margin="75,550,0,0" VerticalAlignment="Top" FontSize="18">
-			<Run Text="Restaurant Website: " />
-			<Run Text="{x:Bind LandingData.restaurant.URL}" />
+			<Run Text="Visit restaurant's website: " />
+			<Hyperlink NavigateUri="{x:Bind LandingData.restaurant.URL}"><Run Text="{x:Bind LandingData.restaurant.Name}" /></Hyperlink>
 		</TextBlock>
 	</Grid>
 </Page>

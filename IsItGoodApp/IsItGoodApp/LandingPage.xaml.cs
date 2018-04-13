@@ -30,13 +30,24 @@ namespace IsItGoodApp
             this.InitializeComponent();
 
             this.LandingData = new LandingPageData();
-
-            RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            var restaurant = (RestaurantModel)e.Parameter;
+
+            LandingData.restaurant = restaurant;
+
+            LandingData.LoadRestaurant();
+
+            RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
         }
     }
 }
