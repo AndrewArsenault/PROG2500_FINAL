@@ -5,20 +5,55 @@
     xmlns:local="using:IsItGoodApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d" Width="600" Height="600">
+    mc:Ignorable="d">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <CommandBar>
             <CommandBar.Content>
-                <TextBlock x:Name="pageName" Margin="75,13,0,0" Text="Search"></TextBlock>
+                <TextBlock x:Name="pageName" Margin="75,13,0,0" Text="Results"></TextBlock>
             </CommandBar.Content>
+            <AppBarButton Icon="Find" Label="Search" ToolTipService.ToolTip="Search Page" Click="SearchButtonClick"/>
             <CommandBar.SecondaryCommands>
                 <AppBarButton Icon="ContactInfo" Label="About" />
                 <AppBarButton Icon="Back" Label="Exit" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
-        <StackPanel>
-            <ListView FontSize="24" SelectedItem="{Binding SelectedNameDay, Mode=TwoWay}" ItemTemplate="{StaticResource RestaurantModelTemplate}" ItemsSource="{Binding TextFiles}" Height="774"></ListView>
-        </StackPanel>
-    </StackPanel>
+
+        <ListView x:Name="ResultsList" Margin="50,100,50,100" DoubleTapped="ResultsList_DoubleTapped" >
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="12" Background="Tan">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="408"/>
+                            <ColumnDefinition Width="360"/>
+                            <ColumnDefinition Width="360"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Name" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="1" Text="Address" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Grid.Column="2" Text="Rating" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="TableDataTemplate" x:DataType="local:RestaurantModel">
+                    <Grid Height="60" AutomationProperties.Name="{x:Bind Name}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="360"/>
+                            <ColumnDefinition Width="360"/>
+                            <ColumnDefinition Width="360"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Height="50" Width="50" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{x:Bind ImageUrl}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{x:Bind Name}" />
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Text="{x:Bind Address}"/>
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{x:Bind Rating}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
 </Page>

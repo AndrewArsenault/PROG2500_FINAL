@@ -34,6 +34,23 @@ namespace IsItGoodApp
 
         private async void  btnSearch_Click(object sender, RoutedEventArgs e)
         {
+
+            if (tbLocation.Text == "" || tbSearch.Text == "")
+            {
+
+                    ContentDialog badInputDialog = new ContentDialog()
+                    {
+                        Title = "Bad search input",
+                        Content = "Please check search values",
+                        CloseButtonText = "Ok"
+                    };
+
+                    await badInputDialog.ShowAsync();
+               
+
+                return;
+            }
+
             searchData.searchKeyWord = tbSearch.Text;
             searchData.searchLocation = tbLocation.Text;
 
@@ -45,16 +62,26 @@ namespace IsItGoodApp
 
             var results = await client.SearchBusinessesAllAsync(request);
 
-            Debug.WriteLine("DONE");
-
             int resultCount = results.Businesses.Count;
 
             Debug.WriteLine(resultCount);
 
             for(int i =0; i < resultCount; i++)
             {
-                
+                RestaurantModel rm = new RestaurantModel(results.Businesses[i].Name,
+                    results.Businesses[i].Phone, results.Businesses[i].Rating, results.Businesses[i].Categories,
+                    results.Businesses[i].Url, results.Businesses[i].Location.Address1, results.Businesses[i].Location.Country,
+                    results.Businesses[i].Location.State, results.Businesses[i].Location.City, results.Businesses[i].Location.ZipCode,
+                    results.Businesses[i].ImageUrl, results.Businesses[i].IsClosed);
+
+                searchData.Restaurants.Add(rm);
+        
             }
+
+            //Navigate to search results page
+
+            this.Frame.Navigate(typeof(SearchResults));
+
 
         }
 
