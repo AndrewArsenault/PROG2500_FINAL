@@ -19,7 +19,7 @@
 			<AppBarButton x:Name="BackButton" Icon="Back" Label="Back" Click="BackButton_Click" />
 			<CommandBar.SecondaryCommands>
 				<AppBarButton Icon="ContactInfo" Label="About" />
-				<AppBarButton Icon="Back" Label="Exit" />
+				<AppBarButton Icon="Cancel" Label="Exit" x:Name="Exit" Click="Exit_Click"  />
 			</CommandBar.SecondaryCommands>
 		</CommandBar>
 

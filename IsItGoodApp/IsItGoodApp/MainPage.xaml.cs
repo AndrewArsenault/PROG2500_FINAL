@@ -89,5 +89,23 @@ namespace IsItGoodApp
         {
             Frame.Navigate(typeof(LandingPage));
         }
+
+        private async void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog ExitDialog = new ContentDialog()
+            {
+                Title = "Exit?",
+                Content = "Are you sure you want to exit?",
+                PrimaryButtonText = "Exit",
+                SecondaryButtonText = "Cancel"
+            };
+
+            ContentDialogResult exitResult = await ExitDialog.ShowAsync();
+
+            if (exitResult == ContentDialogResult.Primary)
+            {
+                Application.Current.Exit();
+            }
+        }
     }
 }

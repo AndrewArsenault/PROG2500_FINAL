@@ -38,18 +38,43 @@ namespace IsItGoodApp
 
         private void ResultsList_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            var tb = (TextBlock)e.OriginalSource;
-            var dataContext = tb.DataContext;
+            try
+            {
+                var tb = (TextBlock)e.OriginalSource;
+                var dataContext = tb.DataContext;
 
-            restaurant = (RestaurantModel)dataContext;
+                restaurant = (RestaurantModel)dataContext;
 
-            //Navigate to restaurant landing page
-            Frame.Navigate(typeof(LandingPage), restaurant);
+                //Navigate to restaurant landing page
+                Frame.Navigate(typeof(LandingPage), restaurant);
+            }
+            catch
+            {
+
+            }
         }
 
         private void SearchButtonClick(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
+        }
+
+        private async void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog ExitDialog = new ContentDialog()
+            {
+                Title = "Exit?",
+                Content = "Are you sure you want to exit?",
+                PrimaryButtonText = "Exit",
+                SecondaryButtonText = "Cancel"
+            };
+
+            ContentDialogResult exitResult = await ExitDialog.ShowAsync();
+
+            if (exitResult == ContentDialogResult.Primary)
+            {
+                Application.Current.Exit();
+            }
         }
     }
 }
