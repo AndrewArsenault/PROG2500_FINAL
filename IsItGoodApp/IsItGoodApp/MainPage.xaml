@@ -12,7 +12,8 @@
             <CommandBar.Content>
                 <TextBlock x:Name="pageName" Margin="75,13,0,0" Text="Search"></TextBlock>
             </CommandBar.Content>
-            <CommandBar.SecondaryCommands>
+			<AppBarButton Icon="Next" Label="TestLandingPage" Click="AppBarButton_Click" />
+			<CommandBar.SecondaryCommands>
                 <AppBarButton Icon="ContactInfo" Label="About" />
                 <AppBarButton Icon="Back" Label="Exit" />
             </CommandBar.SecondaryCommands>
