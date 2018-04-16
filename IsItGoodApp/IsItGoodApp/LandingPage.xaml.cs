@@ -60,11 +60,6 @@ namespace IsItGoodApp
                 RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
             }
 
-            Run separatorRun = new Run
-            {
-                Text = ", "
-            };
-
             for (int i = 0; i < LandingData.restaurant.Categories.Length; i++)
             {
                 Run run = new Run
@@ -75,7 +70,10 @@ namespace IsItGoodApp
 
                 if (i < LandingData.restaurant.Categories.Length -1)
                 {
-                    tbCategories.Inlines.Add(separatorRun);
+                    tbCategories.Inlines.Add(new Run
+                    {
+                        Text = ", "
+                    });
                 }
             }
         }
