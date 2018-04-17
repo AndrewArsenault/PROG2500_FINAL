@@ -75,6 +75,7 @@ namespace IsItGoodApp
 
         }
 
+        //when exit click is pressed, ask user if they want to quit and then quit if desired
         private async void Exit_Click(object sender, RoutedEventArgs e)
         {
             ContentDialog ExitDialog = new ContentDialog()

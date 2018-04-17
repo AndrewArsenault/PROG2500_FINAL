@@ -13,7 +13,6 @@
 				<TextBlock x:Name="pageName" Margin="75,13,0,0" Text="Search"></TextBlock>
 			</CommandBar.Content>
 			<CommandBar.SecondaryCommands>
-                <AppBarButton Icon="ContactInfo" Label="About" />
 				<AppBarButton Icon="Cancel" Label="Exit" x:Name="Exit" Click="Exit_Click"  />
             </CommandBar.SecondaryCommands>
         </CommandBar>

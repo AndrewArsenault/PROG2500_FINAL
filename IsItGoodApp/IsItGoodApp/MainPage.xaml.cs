@@ -32,9 +32,11 @@ namespace IsItGoodApp
             this.InitializeComponent();
         }
 
+        //search through restaurants
         private async void  btnSearch_Click(object sender, RoutedEventArgs e)
         {
 
+            //if the text is empty, don't let them search
             if (tbLocation.Text == "" || tbSearch.Text == "")
             {
 
@@ -51,21 +53,24 @@ namespace IsItGoodApp
                 return;
             }
 
+            //get search data
             searchData.searchKeyWord = tbSearch.Text;
             searchData.searchLocation = tbLocation.Text;
 
+            //set up yelp api client
             var client = new Yelp.Api.Client("uhYZFxMUHsPL7QO5AWYmIVGnrO1n_neqgTDJLZwQyFT2oHCzABvq5_BuXljPrjfS_DO3gkVoRwW2msSEj01JnP7gZAh1BEsDj2wz8zUO8m-Ka9eKrXRypgGzHYS6WnYx");
 
+            //set up the request
             var request = new Yelp.Api.Models.SearchRequest();
             request.Term = searchData.searchKeyWord;
             request.Location = searchData.searchLocation;
 
+            //send request async and get results
             var results = await client.SearchBusinessesAllAsync(request);
 
             int resultCount = results.Businesses.Count;
-
-            Debug.WriteLine(resultCount);
             
+            //for each result, make a restaurant model and add it to search data
             for(int i =0; i < resultCount; i++)
             {
                 RestaurantModel rm = new RestaurantModel(results.Businesses[i].Name,
@@ -85,11 +90,7 @@ namespace IsItGoodApp
 
         }
 
-        private void AppBarButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(LandingPage));
-        }
-
+        //when exit click is pressed, ask user if they want to quit and then quit if desired
         private async void Exit_Click(object sender, RoutedEventArgs e)
         {
             ContentDialog ExitDialog = new ContentDialog()

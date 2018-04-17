@@ -24,8 +24,15 @@ namespace IsItGoodApp
     /// </summary>
     public sealed partial class LandingPage : Page
     {
+        /// <summary>
+        /// Data for use on landing page
+        /// </summary>
         public LandingPageData LandingData { get; set; }
 
+        /// <summary>
+        /// Default constructor for landing page.
+        /// Initialize page and make new landing data
+        /// </summary>
         public LandingPage()
         {
             this.InitializeComponent();
@@ -33,11 +40,12 @@ namespace IsItGoodApp
             this.LandingData = new LandingPageData();
         }
 
+        //When back button is clicked, go back a page if possible.
+        //if it's not, navigate back to main page
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             if (this.Frame.CanGoBack)
             {
-                //this.Frame.GoBack();
                 this.Frame.Navigate(typeof(SearchResults));
                 
             }
@@ -47,6 +55,8 @@ namespace IsItGoodApp
             }
         }
 
+        //when navigated to, call base navigated function
+        //load landing data restaurant as a passed-in parameter
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -55,13 +65,16 @@ namespace IsItGoodApp
 
             LandingData.restaurant = restaurant;
 
+            //load details
             LandingData.LoadRestaurantDetails();
 
+            //if it has a url, set the image to that url
             if (LandingData.restaurant.ImageUrl != "x")
             {
                 RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
             }
 
+            //Add each category to the categories text box separated by a comma
             for (int i = 0; i < LandingData.restaurant.Categories.Length; i++)
             {
                 Run run = new Run
@@ -80,6 +93,7 @@ namespace IsItGoodApp
             }
         }
 
+        //when exit click is pressed, ask user if they want to quit and then quit if desired
         private async void Exit_Click(object sender, RoutedEventArgs e)
         {
             ContentDialog ExitDialog = new ContentDialog()

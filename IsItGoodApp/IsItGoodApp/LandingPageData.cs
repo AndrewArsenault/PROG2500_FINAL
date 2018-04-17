@@ -7,17 +7,37 @@ using System.Threading.Tasks;
 
 namespace IsItGoodApp
 {
+    /// <summary>
+    /// Data for use on landing page
+    /// </summary>
     public class LandingPageData
     {
+        /// <summary>
+        /// The selected restaurant to display on landing page
+        /// </summary>
         public RestaurantModel restaurant;
 
+        /// <summary>
+        /// String representing if restaurant is open or not
+        /// </summary>
         public string openString;
+        /// <summary>
+        /// String representing user rating of restaurant
+        /// </summary>
         public string ratingString;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public LandingPageData()
         {
         }
 
+        /// <summary>
+        /// Loads restaurant details. If restaurant is null, make a default restaurant.
+        /// Converts rating from float to string.
+        /// Updates openString
+        /// </summary>
         public void LoadRestaurantDetails()
         {
             if (restaurant == null)
