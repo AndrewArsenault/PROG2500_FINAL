@@ -14,7 +14,7 @@
 			</CommandBar.Content>
 			<CommandBar.SecondaryCommands>
 				<AppBarButton Icon="Cancel" Label="Exit" x:Name="Exit" Click="Exit_Click"  />
-            </CommandBar.SecondaryCommands>
+			</CommandBar.SecondaryCommands>
         </CommandBar>
         <TextBox x:Name="tbSearch" Header="Search:" AcceptsReturn="False" Margin="100,80,100,10" />
         <TextBox x:Name="tbLocation" Header="Location:" AcceptsReturn="False" Margin="100,30,100,10"/>

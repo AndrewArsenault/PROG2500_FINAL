@@ -17,9 +17,8 @@
 				<TextBlock x:Name="pageName" Margin="75,13,0,0" Text="{x:Bind LandingData.restaurant.Name}"></TextBlock>
 			</CommandBar.Content>
 			<AppBarButton x:Name="BackButton" Icon="Back" Label="Back" Click="BackButton_Click" />
-			<CommandBar.SecondaryCommands>
-				<AppBarButton Icon="ContactInfo" Label="About" />
-				<AppBarButton Icon="Cancel" Label="Exit" x:Name="Exit" Click="Exit_Click"  />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Icon="Cancel" Label="Exit" x:Name="Exit" Click="Exit_Click"  />
 			</CommandBar.SecondaryCommands>
 		</CommandBar>
 

@@ -18,9 +18,8 @@
                 
             </CommandBar.Content>
             <AppBarButton Icon="Find" Label="Search" ToolTipService.ToolTip="Search Page" Click="SearchButtonClick"/>
-            
+
             <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="ContactInfo" Label="About" />
                 <AppBarButton Icon="Cancel" Label="Exit" x:Name="Exit" Click="Exit_Click" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
