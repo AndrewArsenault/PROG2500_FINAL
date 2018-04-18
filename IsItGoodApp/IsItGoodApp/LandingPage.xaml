@@ -12,7 +12,25 @@
 	</Page.DataContext>
 
 	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-		<CommandBar>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="25" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="3*" />
+			<RowDefinition Height="3*" />
+			<RowDefinition Height="3*" />
+			<RowDefinition Height="25" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="25" />
+			<ColumnDefinition Width="2*" />
+			<ColumnDefinition Width="25" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="25" />
+		</Grid.ColumnDefinitions>
+		<CommandBar Grid.Row="0" Grid.ColumnSpan="6">
 			<CommandBar.Content>
 				<TextBlock x:Name="pageName" Margin="75,13,0,0" Text="{x:Bind LandingData.restaurant.Name}"></TextBlock>
 			</CommandBar.Content>
@@ -22,39 +40,40 @@
 			</CommandBar.SecondaryCommands>
 		</CommandBar>
 
-		<TextBlock HorizontalAlignment="Center" Margin="0,75,0,0" VerticalAlignment="Top" FontSize="36" Text="{x:Bind LandingData.restaurant.Name}"/>
-		<Image x:Name="RestaurantImage" HorizontalAlignment="Left" Margin="75,200,0,0" VerticalAlignment="Top" Width="250" />
-		<TextBlock HorizontalAlignment="Left" Margin="330,200,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" Text="{x:Bind LandingData.restaurant.Name}"/>
+		<WebView Grid.Row="3" Grid.Column="1" Grid.RowSpan="4" x:Name="webViewImage" Source="https://s3-media4.fl.yelpcdn.com/bphoto/--8oiPVp0AsjoWHqaY1rDQ/o.jpg"/>
+		<!--<Image x:Name="RestaurantImage" HorizontalAlignment="Left" Margin="75,200,0,0" VerticalAlignment="Top" Width="250" />-->
+		<TextBlock Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" FontSize="18">
 			<Run Text="Rating: " />
 			<Run Text="{x:Bind LandingData.ratingString}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="330,300,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" FontSize="18">
 			<Run Text="{x:Bind LandingData.openString}" />
 		</TextBlock>
-		<TextBlock x:Name="tbCategories" HorizontalAlignment="Left" Margin="330,400,0,0" VerticalAlignment="Top" FontSize="18" Width="200" TextWrapping="WrapWholeWords">
+		<TextBlock Grid.Row="5" Grid.Column="3" x:Name="tbCategories" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" TextWrapping="WrapWholeWords">
 			<Run Text="Categories: " />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="600,200,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="3" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">
 			<Run Text="Address: " />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="600,250,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">
 			<Run Text="{x:Bind LandingData.restaurant.Address}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="600,300,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="{x:Bind LandingData.restaurant.City}" />
 			<Run Text=", " />
 			<Run Text="{x:Bind LandingData.restaurant.State}" />
 			<Run Text=" " />
 			<Run Text="{x:Bind LandingData.restaurant.ZipCode}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="600,350,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="4" Grid.Column="4" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" FontSize="18">
 			<Run Text="{x:Bind LandingData.restaurant.Country}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="600,450,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="5" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">
 			<Run Text="Phone: " />
 			<Run Text="{x:Bind LandingData.restaurant.Phone}" />
 		</TextBlock>
-		<TextBlock HorizontalAlignment="Left" Margin="75,550,0,0" VerticalAlignment="Top" FontSize="18">
+		<TextBlock Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18">
 			<Run Text="Visit restaurant's website: " />
 			<Hyperlink NavigateUri="{x:Bind LandingData.restaurant.URL}"><Run Text="{x:Bind LandingData.restaurant.Name}" /></Hyperlink>
 		</TextBlock>

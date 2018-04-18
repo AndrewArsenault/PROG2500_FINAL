@@ -71,7 +71,8 @@ namespace IsItGoodApp
             //if it has a url, set the image to that url
             if (LandingData.restaurant.ImageUrl != "x")
             {
-                RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
+                webViewImage.Navigate(new Uri(LandingData.restaurant.ImageUrl));
+                //RestaurantImage.Source = new BitmapImage(new Uri(LandingData.restaurant.ImageUrl, UriKind.Absolute));
             }
 
             //Add each category to the categories text box separated by a comma
